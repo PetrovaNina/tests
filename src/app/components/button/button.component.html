@@ -1,0 +1,6 @@
+<a *ngIf="href" [href]="href.toLowerCase()" [target]="target" [class]="buttonClass" (click)="onClick()">
+  {{ label }}
+</a>
+<button *ngIf="!href" [type]="type" [class]="buttonClass" (click)="onClick()">
+  {{ label }}
+</button>
