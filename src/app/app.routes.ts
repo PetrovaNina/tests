@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: "ts",
+    path: "ts", // TODO: use dynamic path for tests
     component: TestComponent,
   },
   {

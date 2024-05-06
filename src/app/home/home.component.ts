@@ -9,5 +9,5 @@ import { ButtonComponent } from "../components/button/button.component";
   templateUrl: "./home.component.html",
 })
 export class HomeComponent {
-  tests = ["TS", "Angular", "HTML"];
+  tests = ["TS"]; // TODO: get tests array from DB
 }
