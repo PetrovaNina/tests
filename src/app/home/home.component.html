@@ -2,6 +2,8 @@
   <h1>AI generated tests</h1>
   <p>Select a test</p>
   <div class="flex gap-2">
-    <app-button *ngFor="let test of tests" [label]="test" [href]="test" target="_blank" />
+    @for (test of tests; track test) {
+    <app-button [label]="test" [href]="test" target="_blank" />
+    }
   </div>
 </div>

@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common";
 import { Component, Input } from "@angular/core";
 import { Questions } from "../../types";
 import { tsTest } from "../mock-data/ts-questions";
@@ -15,7 +14,7 @@ import { ButtonComponent } from "../components/button/button.component";
 @Component({
   selector: "app-test",
   standalone: true,
-  imports: [ButtonComponent, CommonModule, ReactiveFormsModule],
+  imports: [ButtonComponent, ReactiveFormsModule],
   templateUrl: "./test.component.html",
   styleUrl: "./test.component.scss",
 })

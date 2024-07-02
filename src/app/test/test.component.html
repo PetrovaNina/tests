@@ -1,16 +1,20 @@
 <div class="container flex-column">
   <h1>{{ test.name }}</h1>
   <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
-    <div *ngFor="let question of test.questions; index as questionIndex">
+    @for (question of test.questions; track question; let questionIndex = $index) {
+    <div>
       <p>{{ question.question }}</p>
       <div class="flex-column">
-        <label *ngFor="let option of question.options; index as optionIndex" [formArrayName]="questionIndex">
+        @for (option of question.options; track option; let optionIndex = $index) {
+        <label [formArrayName]="questionIndex">
           <input [type]="question.multipleOptions ? 'checkbox' : 'radio'" [formControlName]="optionIndex"
             [name]="questionIndex" (change)="onCheckChange($event)" value="option.text">
           {{option.text}}
         </label>
+        }
       </div>
     </div>
+    }
     <app-button type="submit" label="Submit"></app-button>
   </form>
 </div>
