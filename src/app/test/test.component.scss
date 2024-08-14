@@ -1,0 +1,10 @@
+.question {
+  margin: 1em 0;
+  padding: 1em;
+  &.correct {
+    background-color: var(--green);
+  }
+  &.wrong {
+    background-color: var(--red);
+  }
+}

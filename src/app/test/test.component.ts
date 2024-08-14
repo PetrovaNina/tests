@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { NgClass } from "@angular/common";
 import { Question, Questions } from "../../types";
 import { tsTest } from "../mock-data/ts-questions";
 import {
@@ -11,12 +12,13 @@ import { ButtonComponent } from "../components/button/button.component";
 
 interface FormQuestion extends Question {
   isMultiple: boolean;
+  isCorrect?: boolean;
 }
 
 @Component({
   selector: "app-test",
   standalone: true,
-  imports: [ButtonComponent, ReactiveFormsModule],
+  imports: [ButtonComponent, ReactiveFormsModule, NgClass],
   templateUrl: "./test.component.html",
   styleUrl: "./test.component.scss",
 })
@@ -68,21 +70,14 @@ export class TestComponent implements OnInit {
   submitForm(): void {
     const submittedAnswers = this.formGroup.value;
 
-    this.quiz.forEach(({ options }, index) => {
-      const submittedOptions = submittedAnswers[index];
-
-      let isCorrect: boolean = false;
-      for (let i = 0; i < options.length; i++) {
-        if (options[i].correct !== submittedOptions[i]) {
-          isCorrect = false;
-          break;
-        } else {
-          isCorrect = true;
-        }
-      }
-      console.log(
-        `Question ${index + 1}: ${isCorrect ? "Correct" : "Incorrect"}`
+    this.quiz.forEach((question, questionIndex) => {
+      question.isCorrect = question.options.every(
+        (option, optionIndex) =>
+          option.correct === submittedAnswers[questionIndex][optionIndex]
       );
     });
+
+    const allCorrect = this.quiz.every((question) => question.isCorrect);
+    console.log("All answers correct:", allCorrect);
   }
 }

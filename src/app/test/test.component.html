@@ -2,7 +2,7 @@
   <h1>{{ test.name }}</h1>
   <form [formGroup]="formGroup" (ngSubmit)="submitForm()">
     @for (question of quiz; track question; let questionIndex = $index;) {
-    <div class="question">
+    <div class="question" [ngClass]="{'correct': question.isCorrect, 'wrong': question.isCorrect === false}">
       <p>{{ question.question }}</p>
       <div class="flex-column">
         @for (option of question.options; track option; let optionIndex = $index) {
