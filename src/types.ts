@@ -1,7 +1,6 @@
 export interface Question {
   question: string;
   options: Option[];
-  multipleOptions?: boolean
 }
 
 export interface Option {

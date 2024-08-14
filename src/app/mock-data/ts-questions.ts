@@ -8,7 +8,6 @@ export const tsTest = {
         { text: "A programming language", correct: false },
         { text: "A database management system", correct: false },
       ],
-      multipleOptions: false,
     },
     {
       question: "What are the benefits of using TypeScript?",
@@ -17,7 +16,6 @@ export const tsTest = {
         { text: "Improved tooling support", correct: true },
         { text: "Faster execution speed", correct: false },
       ],
-      multipleOptions: true,
     },
     {
       question: "What is a type annotation in TypeScript?",
